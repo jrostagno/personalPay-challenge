@@ -69,6 +69,7 @@ export const removeCity = (city) => {
     dispatch({
       type: GET_INIT,
     });
+
     return dispatch({
       type: REMOVE_CITY,
       payload: city,

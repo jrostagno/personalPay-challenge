@@ -12,6 +12,7 @@ const TodayWeather = ({ img, temp, pressure, humidity, city, weather }) => {
   };
 
   const today = DAYS[new Date().getDay()];
+
   return (
     <div className="flex  justify-between">
       <div className="flex  flex-col">
@@ -25,7 +26,7 @@ const TodayWeather = ({ img, temp, pressure, humidity, city, weather }) => {
         <h3 className="text-xs ml-3">{`Pressure: ${pressure} hp`}</h3>
         <h3 className="text-xs ml-3 mb-2">{`Humidity: ${humidity} %`}</h3>
       </div>
-      <div className="flex flex-col p-3 pr-4 mt-4 mr-2">
+      <div className="flex flex-col p-3 pr-4 mt-4 max-w-[175px]  mr-2">
         <h1 className="text-base font-semibold">{city}</h1>
         <h2 className="text-xs">{today}</h2>
         <h2 className="font-thin text-2xl">{weather}</h2>
