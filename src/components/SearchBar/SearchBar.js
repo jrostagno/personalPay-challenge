@@ -18,7 +18,6 @@ const SearchBar = ({ setCity, city, getWeatherCity }) => {
     <form className="flex gap-2" onSubmit={handleSubmit}>
       <SearchInput
         data-cy="cityName"
-        setCity={setCity}
         value={city || ""}
         onChange={handleOnChange}
       />
