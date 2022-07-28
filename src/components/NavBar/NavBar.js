@@ -4,16 +4,16 @@ import SearchBar from "../SearchBar/SearchBar";
 
 const NavBar = ({ setCity, city, handleOnchange, getWeatherCity }) => {
   return (
-    <div className="flex justify-center sm:justify-between items-center  bg-slate-800 px-8 py-6 h-20">
-      <h1 className="text-3xl font-medium text-white hidden sm:block opacity-50">
+    <div className="flex items-center justify-center h-20 px-8 py-6 sm:justify-between bg-slate-800">
+      <h1 className="hidden text-3xl font-medium text-white opacity-50 sm:block">
         WeatherApp
       </h1>
       <SearchBar
-        handleOnchange={handleOnchange}
-        getWeatherCity={getWeatherCity}
         city={city}
+        getWeatherCity={getWeatherCity}
+        handleOnchange={handleOnchange}
         setCity={setCity}
-      ></SearchBar>
+      />
     </div>
   );
 };

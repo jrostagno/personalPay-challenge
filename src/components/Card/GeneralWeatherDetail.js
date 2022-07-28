@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+
 import { removeCity } from "../../redux/actions";
 
 import NextDaysWeather from "./NextDaysWeather";
@@ -12,30 +13,34 @@ const GeneralWeatherDetail = ({ todayWeather, nextDays }) => {
   };
 
   return (
-    <div className="flex flex-col p-4 max-w-md w-full  relative justify-between border bg-slate-50  shadow-md rounded-md">
+    <div
+      className="relative flex flex-col justify-between w-full max-w-md p-4 border rounded-md shadow-md bg-slate-50"
+      data-cy="weatherDisplay"
+      data-test-id="weatherDisplay"
+    >
       <TodayWeather
-        weather={todayWeather.weather}
-        temp={todayWeather.temp}
-        pressure={todayWeather.pressure}
+        city={todayWeather.name}
         humidity={todayWeather.humidity}
         img={todayWeather.img}
-        city={todayWeather.name}
+        pressure={todayWeather.pressure}
+        temp={todayWeather.temp}
+        weather={todayWeather.weather}
       />
 
-      <div className="flex justify-between">
+      <div className="flex justify-between" data-test-id="nextDays">
         {nextDays?.map((day, i) => (
           <NextDaysWeather
             key={i}
+            data
             date={day.date}
             img={day.img}
-            data
             temp={day.temp}
           />
         ))}
       </div>
       <button
+        className="absolute top-0 right-0 p-1 mr-2 text-xl font-thin"
         onClick={() => deleteCity(todayWeather.name)}
-        className="absolute text-xl font-thin mr-2 p-1 top-0 right-0"
       >
         x
       </button>

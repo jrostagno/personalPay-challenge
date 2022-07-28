@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import { DAYS, getCityToday, getCurrentHour } from "../../services/helpers";
 
 export const GET_CITY_FORECAST = "GET_CITY_FORECAST";
@@ -6,6 +7,7 @@ export const REMOVE_CITY = "REMOVE_CITY";
 export const GET_INIT = "GET_INIT";
 export const CITY_NOT_FOUND = "CITY_NOT_FOUND";
 const todayDay = DAYS[new Date().getDay()];
+const { REACT_APP_APIKEY_WEATHERAPP } = process.env;
 
 export const getCityForecast = (city) => {
   return async function (dispatch) {
@@ -15,7 +17,7 @@ export const getCityForecast = (city) => {
     try {
       const todayWeather = await getCityToday(city);
       const nextDays = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=84cbb6c6fcb30fa644a6da1056db1b2b&units=metric`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${REACT_APP_APIKEY_WEATHERAPP}&units=metric`
       );
 
       let data = nextDays.data;

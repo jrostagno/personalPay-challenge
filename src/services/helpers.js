@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const { REACT_APP_APIKEY_WEATHERAPP } = process.env;
+
 export const getCurrentHour = () => {
   let hour = new Date().getHours();
 
@@ -24,7 +26,7 @@ const todayDay = DAYS[new Date().getDay()];
 
 export const getCityToday = async (city) => {
   const res = await axios.get(
-    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=84cbb6c6fcb30fa644a6da1056db1b2b&units=metric`
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${REACT_APP_APIKEY_WEATHERAPP}&units=metric`
   );
 
   if (!res) return [];

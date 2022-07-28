@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ButtonPrimary from "./components/Button/ButtonPrimary";
 
 import GeneralWeatherDetail from "./components/Card/GeneralWeatherDetail";
-
 import Layout from "./components/Layout/Layout";
 import Loader from "./components/Loader/Loader";
 import NotFound from "./components/Loader/NotFound";
@@ -22,34 +20,26 @@ function App() {
     setCity("");
   };
 
-  const filterRepeatCity = cities.reduce((acc, city) => {
-    if (!acc.find((el) => el.todayWeather.name === city.todayWeather.name)) {
-      acc = [...acc, city];
-    }
-
-    return acc;
-  }, []);
-
   return (
-    <Layout setCity={setCity} getWeatherCity={getWeatherCity} city={city}>
+    <Layout city={city} getWeatherCity={getWeatherCity} setCity={setCity}>
       {isLoading ? (
-        <Loader></Loader>
+        <Loader />
       ) : notFound ? (
         <NotFound />
       ) : (
         <div
+          className="grid flex-col w-full grid-cols-3 gap-2 p-4 mt-4 "
           style={{
             gridTemplateColumns: "repeat(auto-fill, minmax(350px, 1fr))",
           }}
-          className=" grid grid-cols-3 w-full mt-4 p-4  flex-col gap-2"
         >
-          {filterRepeatCity.length > 0 &&
-            filterRepeatCity.map((city, index) => (
+          {cities.length > 0 &&
+            cities.map((city, index) => (
               <GeneralWeatherDetail
                 key={index}
                 nextDays={city.nextDaysWeather}
                 todayWeather={city.todayWeather}
-              ></GeneralWeatherDetail>
+              />
             ))}
         </div>
       )}

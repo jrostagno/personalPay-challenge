@@ -1,11 +1,11 @@
-import loading from "../../assets/KgkV.gif";
-
 import React from "react";
+
+import loading from "../../assets/KgkV.gif";
 
 const Loader = () => {
   return (
     <div className="flex justify-center text-teal-300">
-      <img src={loading} alt="" />
+      <img alt="" src={loading} />
     </div>
   );
 };

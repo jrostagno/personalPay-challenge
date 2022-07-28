@@ -16,9 +16,17 @@ const rootReducer = (state = initialState, action) => {
     case GET_CITY_FORECAST:
       return {
         ...state,
-        cities: [...state.cities, action.payload],
         notFound: false,
         loading: false,
+        cities: [...state.cities, action.payload].reduce((acc, city) => {
+          if (
+            !acc.find((el) => el.todayWeather.name === city.todayWeather.name)
+          ) {
+            acc = [...acc, city];
+          }
+
+          return acc;
+        }, []),
       };
 
     case GET_INIT:

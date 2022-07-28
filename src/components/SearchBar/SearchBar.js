@@ -1,4 +1,5 @@
 import React from "react";
+
 import ButtonPrimary from "../Button/ButtonPrimary";
 import SearchInput from "../Input/SearchInput";
 
@@ -16,11 +17,14 @@ const SearchBar = ({ setCity, city, getWeatherCity }) => {
   return (
     <form className="flex gap-2" onSubmit={handleSubmit}>
       <SearchInput
+        data-cy="cityName"
+        setCity={setCity}
         value={city || ""}
         onChange={handleOnChange}
-        setCity={setCity}
       />
-      <ButtonPrimary onClick={handleSubmit}>Search</ButtonPrimary>
+      <ButtonPrimary data-cy="submitCity" onClick={handleSubmit}>
+        Search
+      </ButtonPrimary>
     </form>
   );
 };

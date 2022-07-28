@@ -1,17 +1,16 @@
 import React from "react";
+
 import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
 
 const Layout = ({ children, setCity, city, getWeatherCity }) => {
   return (
-    <div className="min-h-screen flex flex-col">
-      <NavBar
-        setCity={setCity}
-        getWeatherCity={getWeatherCity}
-        city={city}
-      ></NavBar>
-      <main className="flex-grow mx-auto sm:mx-0 bg-white">{children}</main>
-      <Footer></Footer>
+    <div className="flex flex-col min-h-screen">
+      <NavBar city={city} getWeatherCity={getWeatherCity} setCity={setCity} />
+      <main className="flex-grow mx-auto bg-white sm:mx-0" data-cy="notFound">
+        {children}
+      </main>
+      <Footer />
     </div>
   );
 };

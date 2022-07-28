@@ -20,7 +20,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "cypress open",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -43,7 +43,10 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",
+    "cypress": "^10.3.1",
+    "dotenv": "^16.0.1",
     "eslint": "^8.20.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-import-helpers": "^1.2.1",
