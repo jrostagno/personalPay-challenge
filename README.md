@@ -46,7 +46,7 @@ I've decided to use Netlify because it has a simple Installation and Configurati
 - React
 - JavaScript
 - Redux
-- TypesScript
+
 - Cypress
 - ESLint
 - Prettier
